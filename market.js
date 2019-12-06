@@ -19,4 +19,4 @@ const userRoute = require('./Routes/userRoute.js');
 app.use('/product', productRoute);
 app.use('/user', userRoute);
 
-app.listen(port, () => console.log(`Example app listening on port ${port}!`));
+app.listen(port, () => console.log(`MarketPlace app listening on port ${port}!`));

@@ -38,9 +38,7 @@ const deleteProduct = async (params) => {
 
 const getProduct_Mobiles = async () => {
     try{
-      const [rows] = await promisePool.execute('SELECT name, price, description, category, Users.nickname as owner FROM Products INNER JOIN Users ON Users.user_id = Products.owner WHERE order_date IS NULL AND Products.category = Mobiles;',
-      
-      );
+      const [rows] = await promisePool.execute('SELECT name, price, description, category, Users.nickname as owner FROM Products INNER JOIN Users ON Users.user_id = Products.owner WHERE order_date IS NULL AND Products.category = Mobiles;');
       return [rows];
     }catch(e){
         console.log('err',e.message);
@@ -49,9 +47,7 @@ const getProduct_Mobiles = async () => {
 
 const getProduct_Computers = async () => {
     try{
-      const [rows] = await promisePool.execute('SELECT name, price, description, category, Users.nickname as owner FROM Products INNER JOIN Users ON Users.user_id = Products.owner WHERE order_date IS NULL AND Products.category = Computers;',
-      
-      );
+      const [rows] = await promisePool.execute('SELECT name, price, description, category, Users.nickname as owner FROM Products INNER JOIN Users ON Users.user_id = Products.owner WHERE order_date IS NULL AND Products.category = Computers;');
       return [rows];
     }catch(e){
         console.log('err',e.message);
@@ -60,9 +56,7 @@ const getProduct_Computers = async () => {
 
 const getProduct_Books = async () => {
     try{
-      const [rows] = await promisePool.execute('SELECT name, price, description, category, Users.nickname as owner FROM Products INNER JOIN Users ON Users.user_id = Products.owner WHERE order_date IS NULL AND Products.category = Books;',
-      
-      );
+      const [rows] = await promisePool.execute('SELECT name, price, description, category, Users.nickname as owner FROM Products INNER JOIN Users ON Users.user_id = Products.owner WHERE order_date IS NULL AND Products.category = Books;');
       return [rows];
     }catch(e){
         console.log('err',e.message);
@@ -71,9 +65,7 @@ const getProduct_Books = async () => {
 
 const getProduct_Fitness = async () => {
     try{
-      const [rows] = await promisePool.execute('SELECT name, price, description, category, Users.nickname as owner FROM Products INNER JOIN Users ON Users.user_id = Products.owner WHERE order_date IS NULL AND Products.category = Fitness;',
-      
-      );
+      const [rows] = await promisePool.execute('SELECT name, price, description, category, Users.nickname as owner FROM Products INNER JOIN Users ON Users.user_id = Products.owner WHERE order_date IS NULL AND Products.category = Fitness;');
       return [rows];
     }catch(e){
         console.log('err',e.message);
@@ -82,9 +74,7 @@ const getProduct_Fitness = async () => {
 
 const getProduct_Automotive = async () => {
     try{
-      const [rows] = await promisePool.execute('SELECT name, price, description, category, Users.nickname as owner FROM Products INNER JOIN Users ON Users.user_id = Products.owner WHERE order_date IS NULL AND Products.category = Automotive;',
-      
-      );
+      const [rows] = await promisePool.execute('SELECT name, price, description, category, Users.nickname as owner FROM Products INNER JOIN Users ON Users.user_id = Products.owner WHERE order_date IS NULL AND Products.category = Automotive;');
       return [rows];
     }catch(e){
         console.log('err',e.message);
@@ -93,9 +83,7 @@ const getProduct_Automotive = async () => {
 
 const getProduct_Home = async () => {
     try{
-      const [rows] = await promisePool.execute('SELECT name, price, description, category, Users.nickname as owner FROM Products INNER JOIN Users ON Users.user_id = Products.owner WHERE order_date IS NULL AND Products.category = Home;',
-      
-      );
+      const [rows] = await promisePool.execute('SELECT name, price, description, category, Users.nickname as owner FROM Products INNER JOIN Users ON Users.user_id = Products.owner WHERE order_date IS NULL AND Products.category = Home;');
       return [rows];
     }catch(e){
         console.log('err',e.message);
@@ -104,9 +92,7 @@ const getProduct_Home = async () => {
 
 const getProduct_Furniture = async () => {
     try{
-      const [rows] = await promisePool.execute('SELECT name, price, description, category, Users.nickname as owner FROM Products INNER JOIN Users ON Users.user_id = Products.owner WHERE order_date IS NULL AND Products.category = Furniture;',
-      
-      );
+      const [rows] = await promisePool.execute('SELECT name, price, description, category, Users.nickname as owner FROM Products INNER JOIN Users ON Users.user_id = Products.owner WHERE order_date IS NULL AND Products.category = Furniture;');
       return [rows];
     }catch(e){
         console.log('err',e.message);
@@ -115,9 +101,7 @@ const getProduct_Furniture = async () => {
 
 const getProduct_Entertainment = async () => {
     try{
-      const [rows] = await promisePool.execute('SELECT name, price, description, category, Users.nickname as owner FROM Products INNER JOIN Users ON Users.user_id = Products.owner WHERE order_date IS NULL AND Products.category = Entertainment;',
-      
-      );
+      const [rows] = await promisePool.execute('SELECT name, price, description, category, Users.nickname as owner FROM Products INNER JOIN Users ON Users.user_id = Products.owner WHERE order_date IS NULL AND Products.category = Entertainment;');
       return [rows];
     }catch(e){
         console.log('err',e.message);
@@ -126,9 +110,7 @@ const getProduct_Entertainment = async () => {
 
 const getProduct_Magazines = async () => {
     try{
-      const [rows] = await promisePool.execute('SELECT name, price, description, category, Users.nickname as owner FROM Products INNER JOIN Users ON Users.user_id = Products.owner WHERE order_date IS NULL AND Products.category = Magazines;',
-      
-      );
+      const [rows] = await promisePool.execute('SELECT name, price, description, category, Users.nickname as owner FROM Products INNER JOIN Users ON Users.user_id = Products.owner WHERE order_date IS NULL AND Products.category = Magazines;');
       return [rows];
     }catch(e){
         console.log('err',e.message);
@@ -137,9 +119,7 @@ const getProduct_Magazines = async () => {
 
 const getProduct_other = async () => {
     try{
-      const [rows] = await promisePool.execute('SELECT name, price, description, category, Users.nickname as owner FROM Products INNER JOIN Users ON Users.user_id = Products.owner WHERE order_date IS NULL AND Products.category = Other;',
-      
-      );
+      const [rows] = await promisePool.execute('SELECT name, price, description, category, Users.nickname as owner FROM Products INNER JOIN Users ON Users.user_id = Products.owner WHERE order_date IS NULL AND Products.category = Other;');
       return [rows];
     }catch(e){
         console.log('err',e.message);
@@ -149,20 +129,16 @@ const getProduct_other = async () => {
 
 const getAllProducts = async() => {
     try{
-        const [rows] = await promisePool.execute('SELECT name, price, description, category, Users.nickname as owner FROM Products INNER JOIN Users ON Users.user_id = Products.owner WHERE order_date IS NULL;',
-        
-        );
+        const [rows] = await promisePool.execute('SELECT name, price, description, category, Users.nickname as owner FROM Products INNER JOIN Users ON Users.user_id = Products.owner WHERE order_date IS NULL;',);
         return [rows];
     }catch(e){
         console.log('err',e.message);
     }
 }
 
-const get_Details_product = async(params) => {
+const getProducts_Details = async(params) => {
     try{
-        const [rows] = await promisePool.execute('SELECT name, price, description, sprcification, category, Users.nickname as owner FROM products WHERE products.id = ?;',
-        params,
-        );
+        const [rows] = await promisePool.execute('SELECT name, price, description, sprcification, category, Users.nickname as owner FROM products WHERE products.id = ?;', params);
         return [rows];
     }catch(e){
         console.log('err',e.message);
@@ -173,9 +149,7 @@ const get_Details_product = async(params) => {
 
 const orderProduct =  async (params) => {
     try{
-      const [rows] = await promisePool.execute('UPDATE Products  SET buyer = ? WHERE Product.product_id = ?;',
-      params,
-      );
+      const [rows] = await promisePool.execute('UPDATE Products  SET buyer = ? WHERE Product.product_id = ?;', params);
       return rows;
     }catch(e){
         console.log('err',e.message);
@@ -210,7 +184,7 @@ module.exports = {
     getProduct_Magazines,
     getProduct_other,
     getAllProducts,
-    get_Details_product,
+    getProducts_Details,
     orderProduct,
     confirm_sold_Product,
 

@@ -4,10 +4,12 @@ const userModel = require('../models/userModel.js');
 
 const create_user = async(req, res) => {
     const params = [
-        req.body.name,
+        req.body.full_name,
         req.body.nickname,
         req.body.email,
         req.body.password,
+        req.body.address,
+        req.body.phone_number,
     ];
     const response = await userModel.addUser(params);
     await res.json({message: 'user added', response});
