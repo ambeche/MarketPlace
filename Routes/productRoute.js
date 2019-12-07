@@ -8,16 +8,16 @@ const upload = multer({dest: 'uploads'});
 const port = 3000;
 
 
-router.get('/', productController.get_all_products);
-router.get('/:category', productController.get_category);
+router.get('/', productController.product_get_all);
+router.get('/:category', productController.product_gatecory);
 
 
-router.post('/', upload.single('product'), productController.create_product);
+router.post('/', upload.single('product'), productController.product_create);
 
-router.put('/', productController.update_product);
-router.put('/', productController.order_product);
-router.put('/', productController.confirm_sold);
+router.put('/', productController.product_update);
+router.put('/', productController.product_order);
+router.put('/', productController.product_sold);
 
-router.delete('/:id', productController.delete_product);
+router.delete('/:id', productController.product_delete);
 
 module.exports = router;

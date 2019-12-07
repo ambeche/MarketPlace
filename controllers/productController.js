@@ -4,7 +4,7 @@ const productModel = require('../models/productModel.js');
 const resize = require('../utils/resize.js');
 const imageMeta = require ('../utils/imageMeta.js');
 
-const create_product = async (req, res) => {
+const product_create = async (req, res) => {
   try {
       
     await resize.makeThumbnail(req.file.path, 
@@ -35,7 +35,7 @@ const create_product = async (req, res) => {
   }
 };
 
-const update_product = async (req, res) => {
+const product_update = async (req, res) => {
 
   const params = [  
     req.body.name,
@@ -51,13 +51,13 @@ const update_product = async (req, res) => {
   await res.json({message: 'product modified', response}); 
 };
 
-const delete_product = async(req, res) => {
+const product_delete = async(req, res) => {
   const params = [req.params.id];
   const response = await productModel.deleteProduct(params);
   await res.json({message: 'product deleted', response});
 };
 
-const order_product = async(req, res) => {
+const product_order= async(req, res) => {
   const params = [
     req.body.buyer,
     req.body.id,
@@ -66,39 +66,39 @@ const order_product = async(req, res) => {
   await res.json({message: 'product ordered', response});
 };
 
-const confirm_sold = async(req, res) => {
+const product_sold = async(req, res) => {
   const params = [
     req.body.order_date,
     req.body.id,
   ];
-  const response = await productModel.confirm_sold_Product(params);
+  const response = await productModel.confirmProduct(params);
   await res.json({message: 'product ordered', response});
 };
 
-const get_category = async (req, res) => {
+const product_gatecory = async (req, res) => {
   const params = [req.params.category];
-  const products = await productModel.getProduct_category(params);
+  const products = await productModel.getProductCategory(params);
   await res.json(products);
 };
 
-const get_all_products = async (req, res) => {
+const product_get_all = async (req, res) => {
   const products = await productModel.getAllProducts();
   await res.json(products);
 };
 
-const get_details_product = async(req, res) => {
-  const params = [req.body.id];
-  const productDetails = await productModel.getProducts_Details(params);
-  await res.json(productDetails);
+const product_get = async(req, res) => {
+  const params = [req.body.name];
+  const product = await productModel.getProduct(params);
+  await res.json(product);
 };
 
 module.exports = {
-  create_product,
-  update_product,
-  order_product,
-  confirm_sold,
-  delete_product,
-  get_all_products,
-  get_details_product,
-  get_category,
+ product_create,
+ product_delete,
+ product_gatecory,
+ product_order,
+ product_get_all,
+ product_update,
+ product_sold,
+ product_get,
 };
