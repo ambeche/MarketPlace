@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User Page</title>
+</head>
+<body>
+<h1>User information:</h1>
+<!-- js here -->
+
+<!--<form action="upload.php" method="post" enctype="multipart/form-data">-->
+<!--    Select image to upload:-->
+<!--    <input type="file" name="fileToUpload" id="fileToUpload">-->
+<!--    <input type="submit" value="Upload Image" name="submit">-->
+<!--</form>-->
+
+<div class="form-wrapper">
+    <h3>Add product</h3>
+    <form action="http://10.114.32.156/product"
+          method="post"
+          class="light-border"
+          enctype="multipart/form-data"
+          id="addProductForm">
+        <input class="light-border" type="text" name="name" placeholder="Name of product" required>
+        <input class="light-border" type="text" name="price" placeholder="Price" required>
+        <input class="light-border" type="text" name="description" placeholder="Short description" required>
+        <input class="light-border" type="text" name="specification" placeholder="Specification" >
+        <input class="light-border" type="file" name="product" placeholder="Choose file">
+        <button class="light-border" type="submit">Upload</button>
+    </form>
+</div>
+</body>
+</html>

@@ -26,26 +26,45 @@ body{
     margin: 5px 10px;
 }
 
-.form-control{
-    margin-top : 9px;
-    margin-left: 30px;
-    border: 1px solid orange !important;
-    border-radius: 20px 0 0 20px !important;
-    box-shadow: none !important;
-}
-
-.input-group-text {
-    background: orange;
-    border: 1px solid orange;
-    margin: 9px 10px 3px 0;
-    border-radius: 0 20px 20px 0 !important;
-    cursor: pointer;
-}
 
 .search-box{
     display: inline-flex;
     width: 60%;
 }
+
+.search-container {
+    float: right;
+    margin-left: 150px;
+}
+/* Style the search box inside the navigation bar */
+.top-nav-bar input[type=text] {
+    padding: 6px;
+    margin-top: 8px;
+    font-size: 17px;
+    border: none;
+    background: orange;
+}
+.search-container button {
+    float: right;
+    padding: 6px 10px;
+    margin-top: 7px;
+    margin-right: 16px;
+    background: #ddd2cb;
+    font-size: 17px;
+    border: 1px solid orange;
+    border-radius: 0 20px 20px 0 !important;
+    cursor: pointer;
+}
+
+.form-control {
+
+    background: #f1f1f1;
+}
+
+.search-container button:hover {
+    background: #e07d17;
+}
+
 
 .menu-bar{
     width: 40%;
@@ -92,6 +111,7 @@ body{
     }
     .search-box {
         width: 100%;
+
     }
     .menu-bar {
         width: 100%;
@@ -106,7 +126,10 @@ body{
         width: 100%;
     }
 }
-/* Side menu */
+
+
+
+/*------------- Side menu ------------------------------*/
 .side-menu {
     height: 79%;
     width: 15%;
@@ -185,25 +208,81 @@ body{
 
 /*--------slider-----------*/
 
-.slider {
-    width: 85%;
-    margin-left: 15%;
-    padding: 0 10px;
-}
-.carousel {
-    box-shadow: 1px 1px 4px 1px rgba(0,0,0,0.5);
-}
-.carousel-indicators {
-    z-index: 1 !important;
-}
+@keyframes slider {
 
-@media only screen and (max-width: 980px) {
-    .slider {
-        width: 100%;
-        margin-left: 0;
+    0% {
+        left: 0;
     }
+
+    20% {
+        left: 0;
+    }
+
+    25% {
+        left: -100%;
+    }
+
+    45% {
+        left: -100%;
+
+    }
+
+    50% {
+        left: -200%;
+
+    }
+
+    70% {
+        left: -200%;
+    }
+
+    75% {
+        left: -300%;
+    }
+
+    95% {
+        left: -300%;
+    }
+
+    100% {
+        left: 0;
+    }
+
 }
 
+#slider {
+    overflow: hidden;
+}
+
+#slider figure img {
+    width: 20%;
+    float: left;
+    display: block;
+    max-width: 80%;
+    max-height: 500px;
+    background-position: 50% 50%;
+    background-repeat:   no-repeat;
+    background-size:     cover;
+
+
+}
+
+#slider figure {
+    position: relative;
+    width: 500%;
+    margin: 0;
+    left: 0;
+    text-align: left;
+    font-size: 0;
+    animation: 20s slider infinite;
+
+}
+@media only screen and (max-width: 980px) {
+    #slider figure img {
+        max-height: 300px;
+    }
+
+}
 /*-----------featured-categories CSS--------
 
 
