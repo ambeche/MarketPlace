@@ -9,17 +9,8 @@ const port = 3000;
 
 
 router.get('/', productController.get_all_products);
-router.get('/', productController.get_details_product);
-router.get('/mobiles', productController.get_mobiles);
-router.get('/home', productController.get_home);
-router.get('/magazines', productController.get_magazines);
-router.get('/books', productController.get_books);
-router.get('/computers', productController.get_computers);
-router.get('/entertainments', productController.get_entertainment);
-router.get('/furniture', productController.get_furniture);
-router.get('/fitness', productController.get_fitness);
-router.get('/automative', productController.get_automative);
-router.get('/others', productController.get_others);
+router.get('/:category', productController.get_category);
+
 
 router.post('/', upload.single('product'), productController.create_product);
 
