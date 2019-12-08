@@ -75,7 +75,7 @@ const product_sold = async(req, res) => {
   await res.json({message: 'product ordered', response});
 };
 
-const product_gatecory = async (req, res) => {
+const product_category = async (req, res) => {
   const params = [req.params.category];
   const products = await productModel.getProductCategory(params);
   await res.json(products);
@@ -95,7 +95,7 @@ const product_get = async(req, res) => {
 module.exports = {
  product_create,
  product_delete,
- product_gatecory,
+ product_category,
  product_order,
  product_get_all,
  product_update,
