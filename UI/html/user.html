@@ -4,36 +4,53 @@
     <meta charset="UTF-8">
     <title>User Page</title>
     <link href="https://api.tiles.mapbox.com/mapbox-gl-js/v1.5.0/mapbox-gl.css" rel="stylesheet"/>
+    <link href="../css/style_user.css" rel="stylesheet">
 </head>
 <body>
-<h1>User information:</h1>
-<!-- js here -->
+<div class="container">
+    <main > <!-- removed -->
+            <h1>List of products:</h1>
+            <ul>
+                <!-- js creates list here -->
+            </ul>
+        <hr>
+        <div class="forms">
+            <div class="form-wrapper" id="add_form">
+                <h3>Add product</h3>
+                <form action="http://localhost:3000/product"
+                      method="post"
+                      class="light-border"
+                      enctype="multipart/form-data"
+                      id="addProductForm">
+                    <input class="light-border" type="text" name="name" placeholder="Name of product" required>
+                    <input class="light-border" type="number" name="price" placeholder="Price" required>
+                    <input class="light-border" type="text" name="description" placeholder="Short description" required>
+                    <input class="light-border" type="text" name="specification" placeholder="Specification" >
+                    <input class="light-border" type="text" name="category" placeholder="Product category" required>
+                    <input class="light-border" type="text" name="owner" placeholder="your username" required>
+                    <input class="light-border" type="file" name="product" placeholder="Choose file">
+                    <button class="light-border" type="submit">Upload</button>
+                </form>
+            </div>
 
-<!--<form action="upload.php" method="post" enctype="multipart/form-data">-->
-<!--    Select image to upload:-->
-<!--    <input type="file" name="fileToUpload" id="fileToUpload">-->
-<!--    <input type="submit" value="Upload Image" name="submit">-->
-<!--</form>-->
+            <div class="form-wrapper" >
+                <h3>Modify products</h3>
+                <form id="mod-product-form" class="light-border">
+                    <input class="light-border" type="text" name="name" placeholder="Name of product" required>
+                    <input class="light-border" type="number" name="price" placeholder="Price" required>
+                    <input class="light-border" type="text" name="description" placeholder="Short description" required>
+                    <input class="light-border" type="text" name="specification" placeholder="Specification" >
+                    <input class="light-border" type="text" name="category" placeholder="Product category" required>
+                    <button class="light-border" type="submit">Save changes</button>
+                </form>
+            </div>
+        </div>
+    </main>
+    </div>
 
-<div class="form-wrapper">
-    <h3>Add product</h3>
-    <form action="http://localhost:3000/product"
-          method="post"
-          class="light-border"
-          enctype="multipart/form-data"
-          id="addProductForm">
-        <input class="light-border" type="text" name="name" placeholder="Name of product" required>
-        <input class="light-border" type="text" name="price" placeholder="Price" required>
-        <input class="light-border" type="text" name="description" placeholder="Short description" required>
-        <input class="light-border" type="text" name="specification" placeholder="Specification" >
-        <input class="light-border" type="text" name="category" placeholder="Product category" required>
-        <input class="light-border" type="text" name="owner" placeholder="your username" required>
-        <input class="light-border" type="file" name="product" placeholder="Choose file">
-        <button class="light-border" type="submit">Upload</button>
-    </form>
-</div>
- <script src="../js/serialize.js"></script>
+    <script src="../js/serialize.js"></script>
     <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v1.5.0/mapbox-gl.js"></script>
-    <script src="../js/mapbox.js"></script> 
+    <script src="../js/mapbox.js"></script>
+    <script src="../js/user.js"></script>
 </body>
 </html>
