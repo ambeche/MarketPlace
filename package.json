@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node market.js"
   },
-  "author": "",
+  "author": "Tamanji, Zakaria & Vy",
   "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5",

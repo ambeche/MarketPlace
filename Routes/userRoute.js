@@ -8,9 +8,9 @@ const upload = multer({ dest: 'uploads/' });
 
 router.get('/', userController.user_get_all);
 
-router.get('/:id', userController.user_getting);
+router.get('/:id', userController.user_get);
 
-router.post('/', userController.create_user);
+router.post('/', userController.user_create);
 
 router.put('/', (req, res) =>{
     res.send("With this endpoint you can edit users.");
