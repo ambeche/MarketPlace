@@ -134,5 +134,5 @@ modForm.addEventListener('submit', async (evt) => {
     getProduct();
 });
 
-getProduct();
+ getProduct();
 
