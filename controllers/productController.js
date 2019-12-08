@@ -11,7 +11,7 @@ const product_create = async (req, res) => {
     'thumbnails/' + req.file.filename,
     {width:160, height:160});
   
-    const metadata = await imageMeta.getCoordinates(req.file.path);
+    const metadata = await imageMeta.getCoordinatesAndDimension(req.file.path);
     console.log('metadata', metadata);
   
     const params = [
