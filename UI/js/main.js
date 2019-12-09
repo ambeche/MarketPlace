@@ -23,45 +23,43 @@ const closeMenu =  () => {
 
 //const url_user = 'http://10.114.32.156/market/user'
 
-const ul = document.querySelector('ul');
+const productCard = document.querySelector('.product-card');
 
 const createProductsCards = (products) => {
     // clear ul
 
-    ul.innerHTML = '';
+    productCard.innerHTML = '';
     products.forEach((product) => {
 
-      // create li with DOM methods
-
+      // create grid of products with DOM methods
+      const card = document.createElement('div');
       const img = document.createElement('img');
       img.src = url + '/' + product.file_name;
       img.alt = product.name;
-      img.classList.add('resp');
+      img.classList.add('card-img');
 
       const figure = document.createElement('figure').appendChild(img);
-      const h2 = document.createElement('h2');
-      h2.innerHTML = product.name;
+      const h2 = document.createElement('h2'); h2.style.color = ' #e07d17';
+      h2.innerHTML = product.price;
 
       const p1 = document.createElement('p');
-      p1.innerHTML = `price: ${product.price}`;
+      p1.innerHTML = product.name;
 
       const p2 = document.createElement('p');
-      p2.innerHTML = `description: ${product.description}`;
-
-      const li = document.createElement('li');
-      li.classList.add('light-border');
-
-      li.appendChild(h2);
-      li.appendChild(figure);
-      li.appendChild(p1);
-      li.appendChild(p2);
-      ul.appendChild(li);
+      p2.innerHTML = product.description;
+      
+      card.classList.add('card-item');
+      card.appendChild(figure);
+      card.appendChild(p1);
+      card.appendChild(h2);
+      card.appendChild(p2);
+      productCard.appendChild(card);
     });
 };
 
-//AJAX  CALL
+// AJAX  CALL, fetching products
 
-const get_product_All = async () => {
+const getProductAll = async () => {
 
     try {
       const response = await fetch(url + '/product/');
@@ -74,4 +72,21 @@ const get_product_All = async () => {
     }
 };
 
-get_product_All();
+// filter products by category; event handler implemented to fetch by category
+
+const categoryList = document.querySelectorAll('.category');
+categoryList.forEach(li => li.addEventListener('click',async (category) => {
+  category = li.textContent;
+  try {
+    const response = await fetch(url + '/product/' + category);
+    const products = await response.json();
+    createProductsCards(products[0]);
+  }
+
+  catch (e) {
+    console.log(e.message);
+  }
+
+}));
+
+getProductAll();

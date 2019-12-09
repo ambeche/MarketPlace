@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta charset = "utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="../css/style_main.css">
     <link rel="shortcut icon" type="image/png" href="../picture/icon/favicon.ico"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -41,15 +43,14 @@
 <section class="header">
     <div class="side-menu" id="side-menu">
         <ul>
-            <li>On sale<i class="fa fa-angle-right"></i>
-            <li>Mobiles<i class="fa fa-angle-right"></i> 
-            <li>Computer<i class="fa fa-angle-right"></i>  
-            <li>Books<i class="fa fa-angle-right"></i>
-            <li>Fitness<i class="fa fa-angle-right"></i>
-            <li>Magazines<i class="fa fa-angle-right"></i>
-            <li>Auto Accessories<i class="fa fa-angle-right"></i>
-            <li>Movies and Music<i class="fa fa-angle-right"></i>
-            <li>Furniture<i class="fa fa-angle-right"></i>
+            <li class="category">Mobiles<i class="fa fa-angle-right"></i> 
+            <li class="category">Computer<i class="fa fa-angle-right "></i>  
+            <li class="category">Books<i class="fa fa-angle-right"></i>
+            <li class="category">Fitness<i class="fa fa-angle-right"></i>
+            <li class="category">Magazines<i class="fa fa-angle-right"></i>
+            <li class="category">Auto Accessories<i class="fa fa-angle-right"></i>
+            <li class="category">Movies and Music<i class="fa fa-angle-right"></i>
+            <li class="category">Furniture<i class="fa fa-angle-right"></i>
         </ul>
     </div>
 
@@ -64,15 +65,14 @@
 
 </section>
 
-<!------------featured-categories-------------->
-
-<section class="featured-categories">
-    <ul>
+<section class="product-card">
         <!-- js creates list here -->
-    </ul>
 </section>
 
-
 <script type="text/javascript" src="../js/main.js"></script>
+<script src="../js/serialize.js"></script>
+<script src="https://api.tiles.mapbox.com/mapbox-gl-js/v1.5.0/mapbox-gl.js"></script>
+<script src="../js/mapbox.js"></script>
+<script src="../js/user.js"></script>
 </body>
 </html>
