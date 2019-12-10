@@ -17,24 +17,19 @@ const closeMenu =  () => {
  document.getElementById('menu-btn').addEventListener('click',openMenu);
  document.getElementById('close-btn').addEventListener('click',closeMenu);
 
- /*---------------featured-categories--------------*/
-
-//const url_product = 'http://10.114.32.156/market/product';
-
-//const url_user = 'http://10.114.32.156/market/user'
-
+ 
 const productCard = document.querySelector('.product-card');
 
+// create a card for each product that it posted on the main page
 const createProductsCards = (products) => {
-    // clear ul
 
-    productCard.innerHTML = '';
+    productCard.innerHTML = ''; // clear product cards list
     products.forEach((product) => {
 
       // create grid of products with DOM methods
       const card = document.createElement('div');
       const img = document.createElement('img');
-      img.src = url + '/' + product.file_name;
+      img.src = url + '/thumbnails/' + product.file_name;
       img.alt = product.name;
       img.classList.add('card-img');
 
