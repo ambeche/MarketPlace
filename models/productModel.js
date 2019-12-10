@@ -38,11 +38,8 @@ const deleteProduct = async (params) => {
 
 const getProductCategory = async (params) => {
     try{
-<<<<<<< HEAD
+
       const [rows] = await promisePool.execute('SELECT *, Users.nickname as owner FROM Products INNER JOIN Users ON Users.nickname = Products.owner WHERE order_date IS NULL AND Products.category = ?;', params);
-=======
-      const [rows] = await promisePool.execute('SELECT name, price, description, specification, category,file_name, Users.nickname as owner FROM Products INNER JOIN Users ON Users.nickname = Products.owner WHERE order_date IS NULL AND Products.category = ?;', params);
->>>>>>> 9587d1e85555b567960a0950e4db89120f9d7a9f
       return [rows];
     }catch(e){
         console.log('err',e.message);
@@ -51,11 +48,8 @@ const getProductCategory = async (params) => {
 
 const getAllProducts = async() => {
     try{
-<<<<<<< HEAD
         const [rows] = await promisePool.execute('SELECT *, Users.nickname as owner FROM Products INNER JOIN Users ON Users.nickname = Products.owner WHERE order_date IS NULL;');
-=======
-        const [rows] = await promisePool.execute('SELECT name, price, description, specification, category,file_name, Users.nickname as owner FROM Products INNER JOIN Users ON Users.nickname = Products.owner WHERE order_date IS NULL;');
->>>>>>> 9587d1e85555b567960a0950e4db89120f9d7a9f
+
         return [rows];
     }catch(e){
         console.log('err',e.message);

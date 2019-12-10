@@ -10,9 +10,6 @@ const getCoordinatesAndDimension = (imgFile) => {
             resolve('no exif data found');
         }else{
             const dimension =[ exifData.exif.ExifImageHeight, exifData.exif.ExifImageWidth];// extracts height and width of image
-            //const longitude = gpsToDecimal(exifData.gps.GPSLongitude, exifData.gps.GPSLongitudeRef);
-            //const latitude = gpsToDecimal(exifData.gps.GPSLatitude, exifData.gps.GPSLatitudeRef);
-            //const coords = [longitude, latitude];
             resolve(dimension); 
     }
     });
