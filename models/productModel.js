@@ -5,7 +5,7 @@ const promisePool = pool.promise();
 
 const addProduct = async (params) => {
     try{
-      const [rows] = await promisePool.execute('INSERT INTO Products(name, price, description, specification, category, metadata, file_name, owner) VALUES (?, ?, ?, ?, ?, ?, ?, ?);',
+      const [rows] = await promisePool.execute('INSERT INTO products(name, price, description, specification, category, metadata, file_name, owner) VALUES (?, ?, ?, ?, ?, ?, ?, ?);',
       params,
       );
       return rows;
@@ -16,7 +16,7 @@ const addProduct = async (params) => {
 
 const updateProduct = async(params) => {
     try{
-        const [rows] = await promisePool.execute('UPDATE Products SET name = ?, price = ?, desciption = ?, specification = ?, category = ?, order_date = ? WHERE Products.product_id = ?;',
+        const [rows] = await promisePool.execute('UPDATE products SET name = ?, price = ?, description = ?, specification = ?, category = ?, order_date = NULL, buyer = NULL WHERE products.product_id = ?;',
         params,
         );
         return rows;
@@ -27,7 +27,7 @@ const updateProduct = async(params) => {
 
 const deleteProduct = async (params) => {
     try{ 
-        const [rows] = await promisePool.execute('DELETE FROM Products WHERE product_id = ?;',
+        const [rows] = await promisePool.execute('DELETE FROM products WHERE product_id = ?;',
         params,
         );
         return [rows];

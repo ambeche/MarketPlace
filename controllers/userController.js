@@ -2,17 +2,17 @@
 
 const userModel = require('../models/userModel.js');
 
+
+
 const user_create = async(req, res) => {
     const params = [
-        req.body.full_name,
-        req.body.nickname,
+        req.body.name,
         req.body.email,
         req.body.password,
-        req.body.address,
-        req.body.phone_number,
     ];
     const response = await userModel.addUser(params);
-    await res.json({message: 'user added', response});
+    const user = await userModel.getUser([response.insertId]);
+    await res.json(user);
 };
 
 

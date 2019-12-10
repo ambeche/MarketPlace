@@ -286,6 +286,7 @@ body{
 .product-card {
   display: grid;
   grid-template-columns: auto;
+    background-color: #ffbf64;
 }
 
 .card-item {
@@ -306,6 +307,7 @@ body{
 
         display: grid;
         grid-template-columns: 50% 50%;
+        background-color: #ffbf64;
     }
 }
 

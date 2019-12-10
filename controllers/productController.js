@@ -3,6 +3,7 @@
 const productModel = require('../models/productModel.js');
 const resize = require('../utils/resize.js');
 const imageMeta = require ('../utils/imageMeta.js');
+const path = require('path');
 
 const product_create = async (req, res) => {
   try {
@@ -68,7 +69,7 @@ const product_order= async(req, res) => {
 
 const product_sold = async(req, res) => {
   const params = [
-    req.body.order_date,
+    // req.body.order_date,
     req.body.id,
   ];
   const response = await productModel.confirmProduct(params);
