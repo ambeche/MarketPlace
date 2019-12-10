@@ -48,7 +48,7 @@ const product_update = async (req, res) => {
   ];
 
   const response = await productModel.updateProduct(params);
-  await res.json({message: 'product modified', response}); 
+  await res.json(response); 
 };
 
 const product_delete = async(req, res) => {

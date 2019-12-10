@@ -27,8 +27,8 @@ router.get('/:category', productController.product_category);
 router.post('/', upload.single('product'), productController.product_create);
 
 router.put('/', productController.product_update);
-router.put('/', productController.product_order);
-router.put('/', productController.product_sold);
+//router.put('/', productController.product_order);
+//router.put('/', productController.product_sold);
 
 router.delete('/:id', productController.product_delete);
 

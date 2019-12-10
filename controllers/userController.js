@@ -2,7 +2,7 @@
 
 const userModel = require('../models/userModel.js');
 
-const user_create = async(req, res) => {
+/*const user_create = async(req, res) => {
     const params = [
         req.body.full_name,
         req.body.nickname,
@@ -13,7 +13,7 @@ const user_create = async(req, res) => {
     ];
     const response = await userModel.addUser(params);
     await res.json({message: 'user added', response});
-};
+};*/
 
 
 const user_get = async (req, res) => {
@@ -30,5 +30,5 @@ const user_get_all = async (req, res) => {
 module.exports = {
     user_get_all,
     user_get,
-    user_create,
+    //user_create,
   };

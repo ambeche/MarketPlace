@@ -60,7 +60,7 @@ const createProductsCards = (products) => {
 const getProductAll = async () => {
 
     try {
-      const response = await fetch(url + '/product/');
+      const response = await fetch(url + '/product');
       const products = await response.json();
       createProductsCards(products[0]);
     }

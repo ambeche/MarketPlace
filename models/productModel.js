@@ -16,7 +16,7 @@ const addProduct = async (params) => {
 
 const updateProduct = async(params) => {
     try{
-        const [rows] = await promisePool.execute('UPDATE Products SET name = ?, price = ?, desciption = ?, specification = ?, category = ?, order_date = ? WHERE Products.product_id = ?;',
+        const [rows] = await promisePool.execute('UPDATE Products SET name = ?, price = ?, desciption = ?, specification = ?, category = ?WHERE Products.product_id = ?;',
         params,
         );
         return rows;

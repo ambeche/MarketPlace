@@ -33,7 +33,7 @@ const createProductCards = (products) => {
     products.forEach((product) => {
         // create li with DOM methods
         const img = document.createElement('img');
-        img.src = url + '/thumbnails/' + product.filename;
+        img.src = url + '/thumbnails/' + product.file_name;
         img.alt = product.name;
         img.classList.add('resp');
 
@@ -164,6 +164,14 @@ addUserForm.addEventListener('submit', async (evt) => {
     logOut.style.display = 'block';
     main.style.display = 'block';
     userInfo.innerHTML = `Hello ${json.user.name}`;
-    getCat();
+    getProduct();
     getUsers();
 });
+
+if (sessionStorage.getItem('token')) {
+    loginWrapper.style.display = 'none';
+    logOut.style.display = 'block';
+    main.style.display = 'block';
+    getProduct();
+    getUsers();
+  }
