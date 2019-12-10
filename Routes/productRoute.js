@@ -3,19 +3,22 @@ const express = require('express');
 const router = express.Router();
 const productController = require('../controllers/productController.js');
 const multer = require('multer');
-const upload = multer({dest: 'uploads'});
+const path = require('path');
 
-/*const storage = multer.diskStorage({
+const storage = multer.diskStorage({
     destination: function (req, file, cb) {
-        cb(null, './uploads');
+        cb(null, 'uploads')
     },
     filename: function (req, file, cb) {
-        cb(null, new Date().toISOString() + file.originalname);
-    }
+        console.log(file);
+        cb(null, file.originalname);
 
-})*/
+    }
+});
+const upload = multer({storage: storage});
 
 const port = 3000;
+
 
 
 router.get('/', productController.product_get_all);

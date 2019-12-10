@@ -36,10 +36,14 @@
 
             <div class="form-wrapper" >
                 <h3>Modify products</h3>
-                <form id="mod-product-form" class="light-border">
+                <form  action="http://localhost:3000/product"
+                       method="put"
+                       class="light-border"
+                       enctype="multipart/form-data"
+                       id="mod-product-form" class="light-border">
                     <input class="light-border" type="text" name="name" placeholder="Name of product" required>
                     <input class="light-border" type="number" name="price" placeholder="Price" required>
-                    <input class="light-border" type="text" name="description" placeholder="Short description" required>
+<!--                    <input class="light-border" type="text" name="description" placeholder="Short description" required>-->
                     <input class="light-border" type="text" name="specification" placeholder="Specification" >
                     <input class="light-border" type="text" name="category" placeholder="Product category" required>
                     <button class="light-border" type="submit">Save changes</button>

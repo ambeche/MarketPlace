@@ -15,14 +15,16 @@ const createProductCards = (products) => {
     ul.innerHTML = '';
     products.forEach((product) => {
         // create li with DOM methods
+        console.log(product);
+        console.log(product.file_name);
         const img = document.createElement('img');
-        img.src = url + '/thumbnails/' + product.filename;
+        img.src = url + '/thumbnails/' + product.file_name;
         img.alt = product.name;
         img.classList.add('resp');
 
         // open large image when clicking image
         img.addEventListener('click', () => {
-            modalImage.src = url + '/' + product.filename;
+            modalImage.src = url + '/' + product.file_name;
             imageModal.alt = product.name;
             imageModal.classList.toggle('hide');
             try {
@@ -36,16 +38,19 @@ const createProductCards = (products) => {
         const figure = document.createElement('figure').appendChild(img);
 
         const h2 = document.createElement('h2');
-        h2.innerHTML = product.name;
+        h2.innerHTML =`${product.name}` ;
 
         const p1 = document.createElement('p');
-        p1.innerHTML = ` ${product.price}`;
+        p1.innerHTML = `Price:${product.price}e`;
 
         const p2 = document.createElement('p');
-        p2.innerHTML = ` ${product.specification}`;
+        p1.innerHTML = `Description: ${product.description}`;
 
         const p3 = document.createElement('p');
-        p3.innerHTML = ` ${product.category}`;
+        p2.innerHTML = `Specification: ${product.specification}`;
+
+        const p4 = document.createElement('p');
+        p3.innerHTML = `Category:${product.category}`;
 
         // add selected product's values to modify form
         const modButton = document.createElement('button');
@@ -54,9 +59,9 @@ const createProductCards = (products) => {
             const inputs = modForm.querySelectorAll('input');
             inputs[0].value = product.name;
             inputs[1].value = product.price;
-            inputs[2].value = product.specification;
-            inputs[3].value = product.category;
-            modForm.querySelector('select').value = product.owner;
+            inputs[2].value = product.description;
+            inputs[3].value = product.specification;
+            inputs[4].value = product.category;
         });
 
 
@@ -72,15 +77,15 @@ const createProductCards = (products) => {
         ul.appendChild(li);
     });
 };
-// // close modal
+//  // close modal
 // close.addEventListener('click', (evt) => {
-//     evt.preventDefault();
-//     imageModal.classList.toggle('hide');
-// });
+//      evt.preventDefault();
+//    imageModal.classList.toggle('hide');
+//  });
 
 // AJAX call
 
-const getProduct = async () => {
+const get_product = async () => {
     console.log('getProduct token ', sessionStorage.getItem('token'));
     try {
         const options = {
@@ -97,6 +102,8 @@ const getProduct = async () => {
     }
 };
 
+get_product();
+
 // submit add product form
 addForm.addEventListener('submit', async (evt) => {
     evt.preventDefault();
@@ -111,7 +118,7 @@ addForm.addEventListener('submit', async (evt) => {
     const response = await fetch(url + '/product', fetchOptions);
     const json = await response.json();
     console.log('add response', json);
-    getProduct();
+    get_product();
 });
 
 // submit modify form
@@ -131,8 +138,7 @@ modForm.addEventListener('submit', async (evt) => {
     const response = await fetch(url + '/product', fetchOptions);
     const json = await response.json();
     console.log('modify response', json);
-    getProduct();
+    get_product();
 });
 
- getProduct();
 
