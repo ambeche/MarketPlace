@@ -5,7 +5,7 @@ const promisePool = pool.promise();
 
 const addProduct = async (params) => {
     try{
-      const [rows] = await promisePool.execute('INSERT INTO Products(name, price, description, specification, category, metadata, file_name, owner) VALUES (?, ?, ?, ?, ?, ?, ?, ?);',
+      const [rows] = await promisePool.execute('INSERT INTO Products(name, price, description, specification, category, file_name, owner) VALUES (?, ?, ?, ?, ?, ?, ?);',
       params,
       );
       return rows;
@@ -47,7 +47,7 @@ const getProductCategory = async (params) => {
 
 const getAllProducts = async() => {
     try{
-        const [rows] = await promisePool.execute('SELECT name, price, description, specification, category, Users.nickname as owner FROM Products INNER JOIN Users ON Users.nickname = Products.owner WHERE order_date IS NULL;');
+        const [rows] = await promisePool.execute('SELECT *, Users.nickname as owner FROM products INNER JOIN users ON users.nickname = products.owner WHERE order_date IS NULL;');
         return [rows];
     }catch(e){
         console.log('err',e.message);

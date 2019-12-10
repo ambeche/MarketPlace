@@ -8,11 +8,11 @@ const product_create = async (req, res) => {
   try {
       
     await resize.makeThumbnail(req.file.path, 
-    'thumbnails/' + req.file.filename,
+    'thumbnails/' + req.file.file_name,
     {width:160, height:160});
   
-    const metadata = await imageMeta.getCoordinatesAndDimension(req.file.path);
-    console.log('metadata', metadata);
+    //const metadata = await imageMeta.getCoordinatesAndDimension(req.file.path);
+    //console.log('metadata', metadata);
   
     const params = [
       req.body.name,
@@ -20,7 +20,7 @@ const product_create = async (req, res) => {
       req.body.description, 
       req.body.specification,
       req.body.category,
-      metadata,
+      //metadata,
       req.file.filename,
       req.body.owner  ,
     ];
