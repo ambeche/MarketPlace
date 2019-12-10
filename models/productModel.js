@@ -38,7 +38,8 @@ const deleteProduct = async (params) => {
 
 const getProductCategory = async (params) => {
     try{
-      const [rows] = await promisePool.execute('SELECT name, price, description, specification, category,file_name, Users.nickname as owner FROM Products INNER JOIN Users ON Users.nickname = Products.owner WHERE order_date IS NULL AND Products.category = ?;', params);
+
+      const [rows] = await promisePool.execute('SELECT *, Users.nickname as owner FROM Products INNER JOIN Users ON Users.nickname = Products.owner WHERE order_date IS NULL AND Products.category = ?;', params);
       return [rows];
     }catch(e){
         console.log('err',e.message);
@@ -47,7 +48,8 @@ const getProductCategory = async (params) => {
 
 const getAllProducts = async() => {
     try{
-        const [rows] = await promisePool.execute('SELECT name, price, description, specification, category,file_name, Users.nickname as owner FROM Products INNER JOIN Users ON Users.nickname = Products.owner WHERE order_date IS NULL;');
+        const [rows] = await promisePool.execute('SELECT *, Users.nickname as owner FROM Products INNER JOIN Users ON Users.nickname = Products.owner WHERE order_date IS NULL;');
+
         return [rows];
     }catch(e){
         console.log('err',e.message);
@@ -56,7 +58,7 @@ const getAllProducts = async() => {
 
 const getProduct = async(params) => {
     try{
-        const [rows] = await promisePool.execute('SELECT name, price, description, specification, category, Users.nickname as owner FROM Products INNER JOIN Users ON Users.nickname = Products.owner WHERE order_date IS NULL AND name = ?;', params);
+        const [rows] = await promisePool.execute('SELECT *, Users.nickname as owner FROM Products INNER JOIN Users ON Users.nickname = Products.owner WHERE order_date IS NULL AND name = ?;', params);
         return [rows];
     }catch(e){
         console.log('err',e.message);
@@ -65,7 +67,7 @@ const getProduct = async(params) => {
 
 const getProductsDetails = async(params) => {
     try{
-        const [rows] = await promisePool.execute('SELECT name, price, description, specification, category, Users.nickname as owner FROM products WHERE products.id = ?;', params);
+        const [rows] = await promisePool.execute('SELECT *, Users.nickname as owner FROM products WHERE products.id = ?;', params);
         return [rows];
     }catch(e){
         console.log('err',e.message);
