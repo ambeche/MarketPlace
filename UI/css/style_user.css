@@ -125,6 +125,7 @@ button{
 .product-card {
     display: grid;
     grid-template-columns: auto;
+    background-color: #ffbf64;
   }
 
   .card-item {
@@ -149,6 +150,7 @@ button{
 
   @media  screen and (min-width: 1000px) {
       .product-card {
+          display: grid;
           grid-template-columns: auto auto auto;
           background-color: #ffbf64;
       }

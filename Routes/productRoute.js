@@ -23,6 +23,8 @@ const port = 3000;
 
 router.get('/', productController.product_get_all);
 router.get('/:category', productController.product_category);
+router.get('/:id', productController.product_get);
+
 
 router.post('/', upload.single('product'), productController.product_create);
 
