@@ -22,10 +22,12 @@ const product_create = async (req, res) => {
       req.body.category,
       metadata,
       req.file.filename,
-      req.body.owner  ,
+      req.body.owner,
     ];
 
+    console.log('new card',params);
     const response = await productModel.addProduct(params);
+    const product = await productModel.getProduct([response.insertId]);
     await res.json(response);
   }
 
@@ -35,24 +37,32 @@ const product_create = async (req, res) => {
   }
 };
 
+const product_get = async(req, res) => {
+  const params = [req.params.product_id];
+  const product = await productModel.getProduct(params);
+  await res.json(product);
+
+};
+
+
+
 const product_update = async (req, res) => {
 
-  const params = [  
+  const params = [
     req.body.name,
     req.body.price,
-    req.body.description, 
+    req.body.description,
     req.body.specification,
     req.body.category,
-    req.body.order_date,
-    req.body.id,
-  ];
+    req.body.product_id,
+];
 
   const response = await productModel.updateProduct(params);
   await res.json({message: 'product modified', response}); 
 };
 
 const product_delete = async(req, res) => {
-  const params = [req.params.id];
+  const params = [req.params.product_id];
   const response = await productModel.deleteProduct(params);
   await res.json({message: 'product deleted', response});
 };
@@ -86,11 +96,6 @@ const product_get_all = async (req, res) => {
   await res.json(products);
 };
 
-const product_get = async(req, res) => {
-  const params = [req.body.name];
-  const product = await productModel.getProduct(params);
-  await res.json(product);
-};
 
 module.exports = {
  product_create,

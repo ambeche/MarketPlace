@@ -37,16 +37,16 @@ const createProductCards = (products) => {
 
       const figure = document.createElement('figure').appendChild(img);
       const h2 = document.createElement('h2'); h2.style.color = ' #e07d17';
-      h2.innerHTML = product.price;
+      h2.innerHTML = `Price: ${product.price} e`;
 
       const p1 = document.createElement('p');
-      p1.innerHTML = product.name;
+      p1.innerHTML = `${product.name}`;
 
       const p2 = document.createElement('p');
-      p2.innerHTML = product.description;
+      p2.innerHTML = `Description ${product.description}`;
 
       const p3 = document.createElement('p');
-      p3.innerHTML = product.category;
+      p3.innerHTML = `Category: ${product.category}`;
 
       const p4 = document.createElement('p');
       p4.innerHTML = product.specification;
@@ -57,8 +57,10 @@ const createProductCards = (products) => {
             const inputs = modForm.querySelectorAll('input');
             inputs[0].value = product.name;
             inputs[1].value = product.price;
-            inputs[2].value = product.specification;
-            inputs[3].value = product.category;
+            inputs[2].value = product.description;
+            inputs[3].value = product.specification;
+            inputs[4].value = product.category;
+            inputs[5].value = product.product_id;
         
         });
       
