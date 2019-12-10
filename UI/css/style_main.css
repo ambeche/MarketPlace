@@ -35,6 +35,7 @@ body{
 .search-container {
     float: right;
     margin-left: 150px;
+    position: fixed;
 }
 /* Style the search box inside the navigation bar */
 .top-nav-bar input[type=text] {
@@ -54,6 +55,7 @@ body{
     border: 1px solid orange;
     border-radius: 0 20px 20px 0 !important;
     cursor: pointer;
+
 }
 
 .form-control {
@@ -301,13 +303,17 @@ body{
 
 @media  screen and (min-width: 380px) {
     .product-card {
-        grid-template-columns: auto auto;
+
+        display: grid;
+        grid-template-columns: 50% 50%;
     }
 }
 
 @media  screen and (min-width: 1000px) {
     .product-card {
-        grid-template-columns: auto auto auto;
+        display: grid;
+        grid-template-columns: 33% 33% 33%;
+        background-color: #ffbf64;
     }
     .card-img {
         max-width: 80%;

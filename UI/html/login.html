@@ -26,8 +26,8 @@
             <button>Sign Up</button>
         </form>
     </div>
-    <div class="form-container sign-in-container">
-        <form action="#">
+    <div class="form-container sign-in-container" id="login-wrapper">
+        <form action="http://localhost:3000/user">
             <h1>Sign in</h1>
             <div class="social-container">
                 <a href="#" class="social"><i class="fa fa-facebook-official" aria-hidden="true"></i></a>
@@ -36,11 +36,17 @@
                 </a>
             </div>
             <span>or use your account</span>
-            <input type="email" placeholder="Email" name="emailaddress" required/>
-            <input type="password" placeholder="Password" name="password" required />
-            <button>Sign In</button>
+            <form id="login-form" class="light-border">
+                <input type="email" placeholder="Email" name="emailaddress" required/>
+                <input type="password" placeholder="Password" name="password" required />
+                <button>Sign In</button>
+            </form>
         </form>
     </div>
+    <header id="log-out" style="display: none;">
+        <p id="user-info"></p>
+        <button class="light-border">Log out</button>
+    </header>
     <div class="overlay-container">
         <div class="overlay">
             <div class="overlay-panel overlay-left">

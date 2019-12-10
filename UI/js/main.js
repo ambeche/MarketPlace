@@ -19,6 +19,7 @@ const closeMenu =  () => {
 
  
 const productCard = document.querySelector('.product-card');
+const ul = document.querySelector('ul');
 
 // create a card for each product that it posted on the main page
 const createProductsCards = (products) => {
@@ -34,10 +35,12 @@ const createProductsCards = (products) => {
       img.classList.add('card-img');
 
       const figure = document.createElement('figure').appendChild(img);
-      const h2 = document.createElement('h2'); h2.style.color = ' #e07d17';
-      h2.innerHTML = product.price;
+      const h2 = document.createElement('h2');
+      h2.style.fontSize='15px';
+      h2.innerHTML =`Price:${product.price}e` ;
 
       const p1 = document.createElement('p');
+      p1.style.color = ' #e07d17';
       p1.innerHTML = product.name;
 
       const p2 = document.createElement('p');
@@ -72,6 +75,7 @@ const getProductAll = async () => {
 const categoryList = document.querySelectorAll('.category');
 categoryList.forEach(li => li.addEventListener('click',async (category) => {
   category = li.textContent;
+
   try {
     const response = await fetch(url + '/product/' + category);
     const products = await response.json();
