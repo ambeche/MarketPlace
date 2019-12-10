@@ -304,14 +304,15 @@ body{
 @media  screen and (min-width: 380px) {
     .product-card {
         display: grid;
-        grid-template-columns: auto auto;
+        grid-template-columns: auto;
     }
 }
 
 @media  screen and (min-width: 1000px) {
     .product-card {
         display: grid;
-        grid-template-columns: auto auto auto;
+        grid-template-columns: 33% 33% 33%;
+        background-color: #ffbf64;
     }
     .card-img {
         max-width: 80%;

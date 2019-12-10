@@ -73,6 +73,7 @@ const createProductCards = (products) => {
         li.appendChild(p1);
         li.appendChild(p2);
         li.appendChild(p3);
+        li.appendChild(p4);
         li.appendChild(modButton);
         ul.appendChild(li);
     });
