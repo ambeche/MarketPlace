@@ -44,7 +44,7 @@ const createProductCards = (products) => {
       p1.innerHTML = `${product.name}`;
 
       const p2 = document.createElement('p');
-      p2.innerHTML = `Description ${product.description}`;
+      p2.innerHTML = `Description: ${product.description}`;
 
       const p3 = document.createElement('p');
       p3.innerHTML = `Category: ${product.category}`;
@@ -56,14 +56,12 @@ const createProductCards = (products) => {
 
         modButton.innerHTML = 'Modify';
         modButton.addEventListener('click', () => {
-            const inputs = modForm.querySelectorAll('input');
             inputs[0].value = product.name;
             inputs[1].value = product.price;
             inputs[2].value = product.description;
             inputs[3].value = product.specification;
             inputs[4].value = product.category;
             inputs[5].value = product.product_id;
-        
 
         });
 

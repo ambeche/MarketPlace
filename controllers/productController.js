@@ -26,7 +26,6 @@ const product_create = async (req, res) => {
       req.body.owner,
     ];
 
-    console.log('new card',params);
     const response = await productModel.addProduct(params);
     const product = await productModel.getProduct([response.insertId]);
     await res.json(response);
