@@ -1,15 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta charset = "utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="../css/style_main.css">
     <link rel="shortcut icon" type="image/png" href="../picture/icon/favicon.ico"/>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <title>Big Home</title>
-
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 </head>
 <body>
 
@@ -18,10 +16,14 @@
         <i class="fa fa-bars" id="menu-btn"></i>
         <i class="fa fa-times" id="close-btn"></i>
         <img src="../picture/icon/favicon.ico" class="logo">
-        <input type="text" class="form-control">
-        <span class="input-group-text">
-            <i class="fa fa-search"></i>
-        </span>
+        <div class="search-container">
+            <form action="">
+                <input type="text" class="form-control" placeholder="Search.." name="search">
+                <span class="input-group-text">
+                    <button type="submit"><i class="fa fa-search"></i></button>
+                </span>
+            </form>
+        </div>
     </div>
     <div class="menu-bar">
         <ul>
@@ -29,7 +31,7 @@
                 <a href="#"><i class="fa fa-shopping-basket"></i>Cart</a>
             </li>
             <li>
-                <a href="#"><i class="fa fa-user"></i>User</a>
+                <a href="./user.html"><i class="fa fa-user"></i>User</a>
             </li>
             <li>
                 <a href="./login.html"><i class="fa fa-sign-in" ></i>Log in</a>
@@ -41,124 +43,37 @@
 <section class="header">
     <div class="side-menu" id="side-menu">
         <ul>
-            <li>On sale<i class="fa fa-angle-right"></i>
-                <ul>
-                    <li>Sub menu-1</li>
-                    <li>Sub menu-1</li>
-                    <li>Sub menu-1</li>
-                    <li>Sub menu-1</li>
-                </ul>
-            </li>
-
-            <li>Mobiles<i class="fa fa-angle-right"></i>
-                <ul>
-                    <li>Sub menu-2</li>
-                    <li>Sub menu-2</li>
-                    <li>Sub menu-2</li>
-                    <li>Sub menu-2</li>
-                </ul>
-            </li>
-            <li>Computer<i class="fa fa-angle-right"></i>
-                <ul>
-                    <li>Sub menu-3</li>
-                    <li>Sub menu-3</li>
-                    <li>Sub menu-3</li>
-                    <li>Sub menu-3</li>
-                </ul>
-            </li>
-            <li>Books<i class="fa fa-angle-right"></i>
-                <ul>
-                    <li>Sub menu-3</li>
-                    <li>Sub menu-3</li>
-                    <li>Sub menu-3</li>
-                    <li>Sub menu-3</li>
-                </ul>
-            </li>
-            <li>Fitness<i class="fa fa-angle-right"></i>
-                <ul>
-                    <li>Sub menu-3</li>
-                    <li>Sub menu-3</li>
-                    <li>Sub menu-3</li>
-                    <li>Sub menu-3</li>
-                </ul>
-            </li>
-            <li>Magazines<i class="fa fa-angle-right"></i>
-                <ul>
-                    <li>Sub menu-3</li>
-                    <li>Sub menu-3</li>
-                    <li>Sub menu-3</li>
-                    <li>Sub menu-3</li>
-                </ul>
-            </li>
-            <li>Auto Accessories<i class="fa fa-angle-right"></i>
-                <ul>
-                    <li>Sub menu-3</li>
-                    <li>Sub menu-3</li>
-                    <li>Sub menu-3</li>
-                    <li>Sub menu-3</li>
-                </ul>
-            </li>
-            <li>Movies and Music<i class="fa fa-angle-right"></i>
-            <ul>
-                <li>Sub menu-3</li>
-                <li>Sub menu-3</li>
-                <li>Sub menu-3</li>
-                <li>Sub menu-3</li>
-            </ul>
-            </li>
-
-            <li>Furniture<i class="fa fa-angle-right"></i>
-                <ul>
-                    <li>Sub menu-3</li>
-                    <li>Sub menu-3</li>
-                    <li>Sub menu-3</li>
-                    <li>Sub menu-3</li>
-                </ul>
-            </li>
-
-
-
+            <li class="category">Mobiles<i class="fa fa-angle-right"></i> 
+            <li class="category">Computer<i class="fa fa-angle-right "></i>  
+            <li class="category">Books<i class="fa fa-angle-right"></i>
+            <li class="category">Fitness<i class="fa fa-angle-right"></i>
+            <li class="category">Magazines<i class="fa fa-angle-right"></i>
+            <li class="category">Auto Accessories<i class="fa fa-angle-right"></i>
+            <li class="category">Movies and Music<i class="fa fa-angle-right"></i>
+            <li class="category">Furniture<i class="fa fa-angle-right"></i>
         </ul>
     </div>
-    <div class="slider">
-        <div id="slider" class="carousel slide carousel-fade" data-ride="carousel">
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img src="../picture/product/apple-iphone-smartphone-desk.jpg" class="d-block w-100" >
-                </div>
 
-                <div class="carousel-item">
-                    <img src="../picture/product/watch.jpeg" class="d-block w-100" >
-                </div>
-
-                <div class="carousel-item">
-                    <img src="../picture/product/lipstick.jpeg" class="d-block w-100" >
-                </div>
-
-                <div class="carousel-item">
-                    <img src="../picture/product/fruit.jpeg" class="d-block w-100" >
-                </div>
-
-            </div>
-            <ol class="carousel-indicators">
-                <li data-target="#slider" data-slide-to="0" class="active"></li>
-                <li data-target="#slider" data-slide-to="1"></li>
-                <li data-target="#slider" data-slide-to="2"></li>
-                <li data-target="#slider" data-slide-to="3"></li>
-            </ol>
-        </div>
+    <div id="slider" >
+        <figure>
+            <img src="../picture/product/apple-iphone-smartphone-desk.jpg">
+            <img src="../picture/product/book.jpg">
+            <img src="../picture/product/lipstick.jpeg">
+            <img src="../picture/product/fruit.jpeg">
+        </figure>
     </div>
+
 </section>
 
-<!------------featured-categories-------------->
-
-<section class="featured-categories">
+<section class="product-card">
     <ul>
         <!-- js creates list here -->
     </ul>
 </section>
 
+<script type="text/javascript" src="../js/main.js"></script>
+<script src="../js/serialize.js"></script>
+<script src="https://api.tiles.mapbox.com/mapbox-gl-js/v1.5.0/mapbox-gl.js"></script>
 
-<script type="text/javascript" src="../main.js"></script>
 </body>
 </html>

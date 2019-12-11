@@ -1,20 +1,16 @@
 'use strict';
 const ExifImage = require('exif').ExifImage;
 
-const getCoordinates = (imgFile) => { // imgFile = full path to uploaded image
+const getCoordinatesAndDimension = (imgFile) => { 
   return new Promise((resolve, reject) => {
     try {
-      // TODO: Use node-exif to get longitude and latitude from imgFile
-      // coordinates below should be an array [longitude, latitude]
       new ExifImage({ image : imgFile },  (error, exifData) => {
         if(error){
             console.log('Error: '+error.message);
-            reject(error);
+            resolve('no exif data found');
         }else{
-            const longitude = gpsToDecimal(exifData.gps.GPSLongitude, exifData.gps.GPSLongitudeRef);
-            const latitude = gpsToDecimal(exifData.gps.GPSLatitude, exifData.gps.GPSLatitudeRef);
-            const coords = [longitude, latitude];
-            resolve(coords); // Do something with your data!
+            const dimension =[ exifData.exif.ExifImageHeight, exifData.exif.ExifImageWidth];// extracts height and width of image
+            resolve(dimension); 
     }
     });
       
@@ -35,5 +31,5 @@ const gpsToDecimal = (gpsData, hem) => {
 };
 
 module.exports = {
-  getCoordinates,
+  getCoordinatesAndDimension,
 };

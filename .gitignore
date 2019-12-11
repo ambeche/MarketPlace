@@ -3,7 +3,6 @@ ca.crt
 ca.csr
 ca.key
 
-
 # Created by .ignore support plugin (hsz.mobi)
 ### Node template
 # Logs
@@ -101,8 +100,7 @@ typings/
 .AppleDouble
 .LSOverride
 
-# Icon must end with two \r
-Icon
+
 
 # Thumbnails
 ._*

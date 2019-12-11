@@ -3,97 +3,107 @@
 const productModel = require('../models/productModel.js');
 const resize = require('../utils/resize.js');
 const imageMeta = require ('../utils/imageMeta.js');
+const path = require('path');
 
-const create_product = async (req, res) => {
-    try {
-
+const product_create = async (req, res) => {
+  try {
+      
     await resize.makeThumbnail(req.file.path, 
-      'thumbnails/' + req.file.filename,
-      {width:160, height:160},
-      );
+    'thumbnails/' + req.file.filename,
+    {width:160, height:160});
   
-      const coords = await imageMeta.getCoordinates(req.file.path);
-      console.log('coords', coords);
+    const metadata = await imageMeta.getCoordinatesAndDimension(req.file.path);
+    console.log('metadata', metadata);
   
     const params = [
       req.body.name,
-      req.body.type,
-      req.file.filename,
-      req.body.description, 
       req.body.price,
-      req.body.small_description,
-      coords,
-  
+      req.body.description, 
+      req.body.specification,
+      req.body.category,
+      metadata,
+      req.file.filename,
+      req.body.owner,
     ];
+
     const response = await productModel.addProduct(params);
-            await res.json(response);
-  }catch (e) {
+    // const product = await productModel.getProduct([response.insertId]);
+    await res.json(response);
+  }
+
+  catch (e) {
     console.log('error', e);
     res.status(400).json({message: 'error'});
-  
   }
-  };
-
- const update_product = async (req, res) => {
-
-    const params = [  
-      req.body.name,
-      req.body.type,
-      req.body.description, 
-      req.body.price,
-      req.body.small_description,
-      req.body.id,
-  
-    ];
-    const response = await productModel.updateProcut(params);
-            await res.json({message: 'product modified', response}); 
-  
-  };
-
-const delete_product = async(req, res) => {
-    const params = [
-      req.params.id,
-    ];
-    const response = await productModel.deleteProduct(params);
-            await res.json({message: 'product deleted', response});
-  };
-
-const product_get_all = async (req, res) => {
-    const products = await productModel.getAllProducts();
-    await res.json(products);
-  };
-
-const product_getting  = async (req, res) => {
-    const params = [req.params.id];
-    const poduct = await productModel.getProduct(params);
-    await res.json(poduct[0]);
-  };
-
- const product_All_description = async(req, res) => {
-   const params = [req.params.id];
-   const alldescrip = await productModel.getAllDescription_product(params);
-   await res.json(alldescrip[0]);
- };
-
-const  product_small_description = async(req, res) => {
-  const params = [req.params.id];
-  const smalldescr = await productModel.get_small_description(params);
-  await res.json(smalldescr[0]);
 };
 
-/*const Product_ordering = async(req, res) => {
-  const params = [req.params.id];
-  const order = await productModel.orderProduct(params);
-  await res.json(order[0]);
-}*/
+const product_get = async(req, res) => {
+  const params = [req.params.product_id];
+  const product = await productModel.getProduct(params);
+  await res.json(product);
+
+};
+
+
+
+const product_update = async (req, res) => {
+
+  const params = [
+    req.body.name,
+    req.body.price,
+    req.body.description,
+    req.body.specification,
+    req.body.category,
+    req.body.product_id,
+];
+
+  const response = await productModel.updateProduct(params);
+  await res.json({message: 'product modified', response}); 
+};
+
+const product_delete = async(req, res) => {
+  const params = [req.params.product_id];
+  const response = await productModel.deleteProduct(params);
+  await res.json({message: 'product deleted', response});
+};
+
+const product_order= async(req, res) => {
+  const params = [
+    req.body.buyer,
+    req.body.id,
+  ];
+  const response = await productModel.orderProduct(params);
+  await res.json({message: 'product ordered', response});
+};
+
+const product_sold = async(req, res) => {
+  const params = [
+    // req.body.order_date,
+    req.body.id,
+  ];
+  const response = await productModel.confirmProduct(params);
+  await res.json({message: 'product ordered', response});
+};
+
+const product_category = async (req, res) => {
+  const params = [req.params.category];
+  const products = await productModel.getProductCategory(params);
+  await res.json(products);
+};
+
+const product_get_all = async (req, res) => {
+  const products = await productModel.getAllProducts();
+  await res.json(products);
+};
+
 
 module.exports = {
-    create_product,
-    update_product,
-    product_getting,
-    product_get_all,
-    delete_product,
-    product_small_description,
-    product_All_description,
-  
-  };
+ product_create,
+ product_delete,
+ product_category,
+ product_order,
+ product_get_all,
+ product_update,
+ product_sold,
+ product_get,
+};

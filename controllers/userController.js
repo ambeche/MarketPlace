@@ -2,19 +2,21 @@
 
 const userModel = require('../models/userModel.js');
 
-const create_user = async(req, res) => {
+
+
+const user_create = async(req, res) => {
     const params = [
         req.body.name,
-        req.body.nickname,
         req.body.email,
         req.body.password,
     ];
     const response = await userModel.addUser(params);
-    await res.json({message: 'user added', response});
+    const user = await userModel.getUser([response.insertId]);
+    await res.json(user);
 };
 
 
-const user_getting = async (req, res) => {
+const user_get = async (req, res) => {
     const params = [req.params.id];
     const user = await userModel.getUser(params);
     await res.json(user);
@@ -27,6 +29,6 @@ const user_get_all = async (req, res) => {
 
 module.exports = {
     user_get_all,
-    user_getting,
-    create_user,
+    user_get,
+    user_create,
   };
