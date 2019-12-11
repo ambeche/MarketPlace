@@ -49,7 +49,7 @@ const getProductCategory = async (params) => {
 
 const getAllProducts = async() => {
     try{
-        const [rows] = await promisePool.execute('SELECT *, users.nickname as owner FROM products INNER JOIN Users ON users.nickname = products.owner WHERE order_date IS NULL;');
+        const [rows] = await promisePool.execute('SELECT *, users.nickname as owner FROM products INNER JOIN users ON users.nickname = products.owner WHERE order_date IS NULL;');
 
         return [rows];
     }catch(e){

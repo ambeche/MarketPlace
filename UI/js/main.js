@@ -1,6 +1,6 @@
 'use strict';
 
-const url = 'http://10.114.32.156/bigHome';
+const url = 'https://10.114.32.156/bigHome';
 
 const openMenu =  () => {
     document.getElementById("side-menu").style.display="block";

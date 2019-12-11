@@ -1,5 +1,5 @@
 'use strict';
-const url = 'http://10.114.32.156/bigHome'; // change url when uploading to server
+const url = 'https://10.114.32.156/bigHome'; // change url when uploading to server
 
 const main = document.querySelector('main');
 const addForm = document.querySelector('#addProductForm');

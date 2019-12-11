@@ -70,10 +70,12 @@ app.post('/register', (req, res) => {
 
 app.use('/auth', authRoute);
 
-app.use(express.static('uploads'));
+
+app.use(express.static('UI'));
+
 app.use('/thumbnails', express.static('thumbnails'));
 
-app.use('/uploads', express.static('uploads'));
+app.use( express.static('uploads'));
 
 const productRoute = require('./Routes/productRoute.js');
 const userRoute = require('./Routes/userRoute.js');
