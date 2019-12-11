@@ -15,47 +15,46 @@ const createProductCards = (products) => {
     productCard.innerHTML = ''; // clear product cards list
     products.forEach((product) => {
 
+        // create grid of products with DOM methods
+        const card = document.createElement('div');
+        const img = document.createElement('img');
+        img.src = url + '/thumbnails/' + product.file_name;
+        img.alt = product.name;
+        img.classList.add('card-img');
 
-      // create grid of products with DOM methods
-      const card = document.createElement('div');
-      const img = document.createElement('img');
-      img.src = url + '/thumbnails/' + product.file_name;
-      img.alt = product.name;
-      img.classList.add('card-img');
+        // open large image when clicking image
+        img.addEventListener('click', () => {
+            modalImage.src = url + '/' + product.file_name;
+            imageModal.alt = product.name;
+            imageModal.classList.toggle('hide');
+            try {
+                const coords = JSON.parse(product.metadata);
+                // console.log(coords);
+                addMarker(coords);
+            } catch (e) {
+            }
+        });
 
-       // open large image when clicking image
-       img.addEventListener('click', () => {
-        modalImage.src = url + '/' + product.file_name;
-        imageModal.alt = product.name;
-        imageModal.classList.toggle('hide');
-        try {
-            const coords = JSON.parse(product.metadata);
-            // console.log(coords);
-            addMarker(coords);
-        } catch (e) {
-        }
-     });
+        const figure = document.createElement('figure').appendChild(img);
+        const h2 = document.createElement('h2'); h2.style.color = ' #e07d17';
+        h2.innerHTML = `Price: ${product.price} e`;
 
-      const figure = document.createElement('figure').appendChild(img);
-      const h2 = document.createElement('h2'); h2.style.color = ' #e07d17';
-      h2.innerHTML = `Price: ${product.price} e`;
+        const p1 = document.createElement('p');
+        p1.innerHTML = `${product.name}`;
 
-      const p1 = document.createElement('p');
-      p1.innerHTML = `${product.name}`;
+        const p2 = document.createElement('p');
+        p2.innerHTML = `Description ${product.description}`;
 
-      const p2 = document.createElement('p');
-      p2.innerHTML = `Description: ${product.description}`;
+        const p3 = document.createElement('p');
+        p3.innerHTML = `Category: ${product.category}`;
 
-      const p3 = document.createElement('p');
-      p3.innerHTML = `Category: ${product.category}`;
+        const p4 = document.createElement('p');
+        p4.innerHTML = product.specification;
 
-      const p4 = document.createElement('p');
-      p4.innerHTML = product.specification;
-
-      const modButton = document.createElement('button');
-
+        const modButton = document.createElement('button');
         modButton.innerHTML = 'Modify';
         modButton.addEventListener('click', () => {
+            const inputs = modForm.querySelectorAll('input');
             inputs[0].value = product.name;
             inputs[1].value = product.price;
             inputs[2].value = product.description;

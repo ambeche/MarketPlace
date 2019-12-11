@@ -27,7 +27,7 @@ const product_create = async (req, res) => {
     ];
 
     const response = await productModel.addProduct(params);
-    const product = await productModel.getProduct([response.insertId]);
+    // const product = await productModel.getProduct([response.insertId]);
     await res.json(response);
   }
 
