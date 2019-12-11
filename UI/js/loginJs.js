@@ -1,5 +1,5 @@
 'use strict';
-const url = 'http://localhost:3000';
+const url = 'http://10.114.32.156/bigHome';
 const signUpButton = document.getElementById('signUp');
 const signInButton = document.getElementById('signIn');
 const container = document.getElementById('container');

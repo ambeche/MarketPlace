@@ -1,5 +1,7 @@
 .idea
-
+ca.crt
+ca.csr
+ca.key
 # Created by .ignore support plugin (hsz.mobi)
 ### Node template
 # Logs

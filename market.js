@@ -2,12 +2,17 @@
 const express = require('express');
 const cors = require('cors');
 const app = express();
-const port = 3000;
+const port = 3005;
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 const bcrypt = require('bcryptjs');
 const authRoute = require('./Routes/authRoute');
 
+if(process.env.SERVER === 'dev_localhost') {
+    require('./secure/localhost')(app);
+  } else {
+    require('./secure/server')(app);
+  }
 
 app.use(cors());
 app.use(express.json()) // for parsing application/json
@@ -76,7 +81,4 @@ const userRoute = require('./Routes/userRoute.js');
 app.use('/product', productRoute);
 app.use('/user', userRoute);
 
-app.listen(port, () => console.log(`MarketPlace app listening on port ${port}!`));
-
-
-
+app.listen(port, () => console.log(`MarketPlace app listening on secured port ${port}!`));
