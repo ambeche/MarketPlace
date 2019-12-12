@@ -8,7 +8,7 @@
 **Team member:**
 * Vy Nguyen - Zakaria Ziouziou – Tamanji Che
 
-**[Link to the running app](https://10.114.32.156/bigHome/html/index.html)** Note - Metropolia's VPN required to open link
+**[Link to the running app](https://10.114.32.156/bigHome/html/index.html)** ***Note - Metropolia's VPN required to open link**
 
 
 
