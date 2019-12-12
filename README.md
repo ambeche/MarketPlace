@@ -8,7 +8,7 @@
 **Team member:**
 * Vy Nguyen - Zakaria Ziouziou – Tamanji Che
 
-**[Link to the running app](https://10.114.32.156/bigHome/html/index.html)**
+**[Link to the running app](https://10.114.32.156/bigHome/html/index.html)** Note - Metropolia's VPN required to open link
 
 
 
@@ -19,6 +19,8 @@
 
 * Responsive frontend with HTML/CSS/JavaScript targeting mobile first 
 
+* Https enabled on the application using a self-signed certificate
+
 ## 2. Prerequisites
 
  ### Install tools
@@ -27,8 +29,10 @@
 * VSCode (or Atom, Brackets, etc...)
 * Some file transfer app like WinSCP, [FileZilla](https://filezilla-project.org/) or Cyberduck
 * Node.js LTS version
-* Metropolia VPN
-* Install Educloud virtual computer
+* Metropolia VPN - Login credentials required
+* Install and configure a LAAMP stack - Centos 7 was used to deploy this application
+* [Configure https on Apache and generate a self-signed certificate](https://wiki.centos.org/HowTos/Https)
+* To change the port number used for the application go to file MarketPlace/market.js and MarketPlace/secure/localhost.js
 
 ## 3. How to deploy from sources
 
@@ -105,7 +109,7 @@ cd MarketPlace
    
    * If the command runs successfully, it won’t produce any output. If any errors occur during the process, mysql will print them to the terminal instead.
   
-  **4.Create a .env file in the root directory of your project. Add environment-specific variables on new lines in the form of NAME=VALUE. For example:**
+  **5.Create a .env file in the root directory of your project. Add environment-specific variables on new lines in the form of NAME=VALUE. For example:**
   
   ``` 
   DB_HOST=localhost
