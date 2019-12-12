@@ -117,7 +117,7 @@ cd MarketPlace
   **6. Run the app**
   
   ``` 
-  node app.js
+  node market.js
   ```
 
 
